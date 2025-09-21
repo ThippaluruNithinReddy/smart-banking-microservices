@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  security:
+    user:
+      name: ${CONFIG_SERVER_USERNAME:configuser}
+      password: ${CONFIG_SERVER_PASSWORD:configpass}
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        bootstrap: true
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    '[org.springframework.cloud.config]': DEBUG
+    '[org.springframework.boot.autoconfigure.security]': INFO
